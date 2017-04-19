@@ -1,0 +1,16 @@
+ffi tinymceFfi
+jsFunc TinymceFfi.editor=uw_tinymce_editor
+jsFunc TinymceFfi.init=uw_tinymce_init
+jsFunc TinymceFfi.content=uw_tinymce_content
+jsFunc TinymceFfi.setContent=uw_tinymce_setContent
+clientOnly Tinymce.editor
+clientOnly Tinymce.init
+clientOnly Tinymce.content
+clientOnly Tinymce.setContent
+benignEffectful Tinymce.editor
+benignEffectful Tinymce.init
+benignEffectful Tinymce.content
+benignEffectful Tinymce.setContent
+jsFile tinymceUrweb.js
+
+tinymce

@@ -1,0 +1,15 @@
+html5
+library bootstrap/bootstrap3
+library tinymce
+allow responseHeader Content-Disposition
+allow env SSL_CLIENT_S_DN
+allow mime text/csv
+
+$/list
+$/char
+$/string
+$/monad
+$/option
+$/datetime
+
+ui

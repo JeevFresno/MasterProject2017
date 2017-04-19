@@ -1,0 +1,8 @@
+
+fun main () = return <xml><body>
+      <active code={tm <- Tinymce.editor {Width = Tinymce.DefaultSize,
+                                           Height = Tinymce.DefaultSize,
+                                           InitialText = ""};
+                    return (Tinymce.show tm)}/>
+    </body></xml>
+

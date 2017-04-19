@@ -1,0 +1,24 @@
+open TinymceFfi
+
+type editor = {Selector : id,
+               Source : source string,
+               Show : xbody}
+
+fun editor r =
+    id <- fresh;
+    s <- source r.InitialText;
+    return {Selector = id,
+            Source = s,
+            Show = <xml>
+              <span id={id}/>
+              <active code={TinymceFfi.init (r -- #InitialText ++ {Selector = id, Source = s});
+                            return <xml></xml>}/>
+            </xml>}
+
+fun show ed = ed.Show
+
+fun content ed = signal ed.Source
+
+fun setContent ed s =
+    set ed.Source s;
+    TinymceFfi.setContent ed.Selector s
