@@ -30,10 +30,13 @@ function uw_tinymce_init(r) {
     //the init function of the tinymce editor
     //console.log("ID="+r._Id);
     configT={};
-    configT.selector='#uw-1';
+    var editorInstance = '#'+r._Selector;
+    configT.selector=editorInstance;
     configT.plugins="image,link";
-    console.log(r._ID);
+    console.log('Editor Instance = '+editorInstance);
+    console.log(configT);
 
+    //Initializing the tinymce editor
     tinymce.init(configT);
 
     //var src = r._Source;
