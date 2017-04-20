@@ -28,8 +28,14 @@ function uw_tinymce_init(r) {
     //config.selector = r._Id;
 
     //the init function of the tinymce editor
+    //console.log("ID="+r._Id);
+    configT={};
+    configT.selector='#uw-1';
+    configT.plugins="image,link";
+    console.log(r._ID);
 
-    tinymce.init(r._Id);
+    tinymce.init(configT);
+
     //var src = r._Source;
     //ed.setData(sg(src));
     //ed.on('change', function(e) { sv(src, ed.getData()); });
