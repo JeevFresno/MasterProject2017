@@ -1,4 +1,7 @@
-
+datatype size =
+         DefaultSize
+       | Pixels of int
+       | Percent of int
 
 type editor
      
