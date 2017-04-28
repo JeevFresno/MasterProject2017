@@ -22,6 +22,13 @@ function whichTheme(v){
     return v.v;
 }
 
+
+//function to create the toolbar
+
+function customizeToolbar(v){
+
+
+}//enf of the fucntion
 function uw_tinymce_init(r) {
     
     var config = {};
@@ -44,10 +51,12 @@ function uw_tinymce_init(r) {
     var theme = r._Inline;
     config.inline=theme;
     configT.selector=editorInstance;
-    configT.plugins="image,link";
+    // configT.plugins="image,link";
     console.log('Editor Instance = '+editorInstance);
     configT.inline=whichTheme(r._Inline);
-
+    
+    var toolbar = r._ToolbarSet;
+    console.log(toolbar.v);
     console.log(configT);
 
     //Initializing the tinymce editor
