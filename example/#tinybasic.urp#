@@ -1,5 +1,3 @@
 library ../default
 
-safeGet default
-
 tinybasic

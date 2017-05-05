@@ -3,14 +3,17 @@ jsFunc TinymceFfi.editor=uw_tinymce_editor
 jsFunc TinymceFfi.init=uw_tinymce_init
 jsFunc TinymceFfi.content=uw_tinymce_content
 jsFunc TinymceFfi.setContent=uw_tinymce_setContent
+jsFunc TinymceFfi.lets_try = lets_try
 clientOnly Tinymce.editor
 clientOnly Tinymce.init
 clientOnly Tinymce.content
 clientOnly Tinymce.setContent
+clientOnly Tinymce.lets_try
 benignEffectful TinymceFfi.editor
 benignEffectful TinymceFfi.init
 benignEffectful TinymceFfi.content
 benignEffectful TinymceFfi.setContent
+benignEffectful TinymceFfi.lets_try
 jsFile tinymceUrweb.js
 
 tinymce

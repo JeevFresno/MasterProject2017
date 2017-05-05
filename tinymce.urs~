@@ -11,8 +11,12 @@ datatype theme =
 
 datatype button =
 	   Separator
-	 
-	 (*|userdefined of {Name: string, function:string -> string*)
+
+	  |UserdefinedFfi of string 
+	  |InlineFn of {FnName: option string, Text: option string, Fn: option string} 
+	  |Urfn of string -> string
+
+	  |Menubar of {Menuname: option string, Title: option string, Buttons : list button}
 	  |Bold
 	  |Italic
 	  |Underline
@@ -27,17 +31,17 @@ datatype button =
           |Formatselect
 	  |Fontsizeselect
 	  |Fontselect
-	  
+
 	  |Cut
 	  |Copy
 	  |Paste
 
-	  |Bulllist
+	  |Bullist
 	  |Numlist
-	  
+
 	  |Outdent
 	  |Indent
-	   
+
 	  |Blockquote
 	  |Undo
 	  |Redo
@@ -50,7 +54,7 @@ datatype button =
 	  |Insert
 
 	  |Hr
-	  
+
 	  |Link
 	  |Unlink
 	  |Anchor
@@ -78,38 +82,41 @@ datatype button =
 	  |Searchsolutions
 
 	  |Importcss
-	  
-  datatype plugins =  Image | Emoticons 
 
- datatype items = Buttons of list button | Plugins of list plugin
+ (* datatype plugins =  ImageX | EmoticonsX *)
+
+ (*datatype items = Buttons of list button | Plugins of list plugin*)
 
  (* toolbar definition *)
 
-datatype toolbar = 
+(* datatype toolbar =
 	   ToolbarN
-	 
+
 	 | Bar of { Buttons: list button}
 
-         | Stack of {Title: option string, Buttons: list button}
+         | Stack of {MenuName: option string, Title: option string, Buttons: list button} *)
 
-         | List of { Functions: list items }
-         
+datatype toolbar = Collection of list button
 
-datatype toolbar_set =
+datatype stack = Verticallist of list toolbar | DefaultToolbarSet 
+
+(*datatype completeToolbar = list stack | DefaultToolbarSet*)
+
+(*datatype toolbar_set =
 	 DefaultToolbarSet
-	 
-	 | CustomizeToolbar of list toolbar
+
+	 | CustomizeToolbar of stack *)
 
 
 (*  defining editor type *)
 type editor
- 
+
 (* specifing the confurationn of the editor *)
-    
+
 val editor : {Width : size,
 	      Height : size,
 	      InitialText : string,
-	      ToolbarSet: toolbar_set,
+	      ToolbarSet: stack,
 	      Inline: theme
 	     }
 	     -> transaction editor
@@ -117,3 +124,4 @@ val editor : {Width : size,
 val show : editor -> xbody
 val content : editor -> signal string
 val setContent : editor -> string -> transaction unit
+val lets_try :  string -> transaction unit

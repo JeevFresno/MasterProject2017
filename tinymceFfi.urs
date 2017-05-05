@@ -8,102 +8,117 @@ datatype size =
 datatype theme =
 	 Inline of bool
 
-(* Added Inline Variable *)
+	 datatype button =
+	 	   Separator
 
-datatype button =
-	 Separator
+	 	  |UserdefinedFfi of string 
+		  |InlineFn of {FnName: option string, Text: option string} 
+		  |Urfn of string -> string
 
-	 (*|userdefined of {Name: string, function:string -> string*)
-	  |Bold
-	  |Italic
-	  |Underline
-	  |Strikethrough
+	 	  |Menubar of {Menuname: option string, Title: option string , Buttons : list button}
+	 	  |Bold
+	 	  |Italic
+	 	  |Underline
+	 	  |Strikethrough
 
-	  |Alignleft
-	  |Alignright
-	  |Aligncenter
-	  |Alignjustify
+	 	  |Alignleft
+	 	  |Alignright
+	 	  |Aligncenter
+	 	  |Alignjustify
 
-	  |Styleselect
-          |Formatselect
-	  |Fontsizeselect
-	  |Fontselect
+	 	  |Styleselect
+	          |Formatselect
+	 	  |Fontsizeselect
+	 	  |Fontselect
 
-	  |Cut
-	  |Copy
-	  |Paste
+	 	  |Cut
+	 	  |Copy
+	 	  |Paste
 
-	  |Bulllist
-	  |Numlist
+	 	  |Bullist
+	 	  |Numlist
 
-	  |Outdent
-	  |Indent
+	 	  |Outdent
+	 	  |Indent
 
-	  |Blockquote
-	  |Undo
-	  |Redo
-	  |Removeformat
+	 	  |Blockquote
+	 	  |Undo
+	 	  |Redo
+	 	  |Removeformat
 
-	  |Subscript
-	  |Superscript
+	 	  |Subscript
+	 	  |Superscript
 
-	  |Visualaid
-	  |Insert
+	 	  |Visualaid
+	 	  |Insert
 
-	  |Hr
+	 	  |Hr
 
-	  |Link
-	  |Unlink
-	  |Anchor
+	 	  |Link
+	 	  |Unlink
+	 	  |Anchor
 
-	  |Image
+	 	  |Image
 
-	  |Code
-	  |Codesample
-	  |Bbcode
+	 	  |Code
+	 	  |Codesample
+	 	  |Bbcode
 
-	  |Table
-	  |Emoticons
+	 	  |Table
+	 	  |Emoticons
 
-	  |Save
-	  |Cancel
+	 	  |Save
+	 	  |Cancel
 
-	  |Print
-	  |Preview
+	 	  |Print
+	 	  |Preview
 
-	  |Media
-	  |Spellchecker
+	 	  |Media
+	 	  |Spellchecker
 
-	  |Fullscreen
+	 	  |Fullscreen
 
-	  |Searchsolutions
+	 	  |Searchsolutions
 
-	  |Importcss
+	 	  |Importcss
+
+	  (* datatype plugins =  ImageX | EmoticonsX *)
+
+	  (*datatype items = Buttons of list button | Plugins of list plugin*)
+
+	  (* toolbar definition *)
+
+	 (* datatype toolbar =
+	 	   ToolbarN
+
+	 	 | Bar of { Buttons: list button}
+
+	          | Stack of {MenuName: option string, Title: option string, Buttons: list button} *)
+
+	 datatype toolbar = Collection of list button
+
+	 datatype stack = Verticallist of list toolbar | DefaultToolbarSet 
+		
+	 (*datatype stack = Verticallist of list toolbar
+
+	  datatype completeToolbar = list stack | DefaultToolbarSet*)				
+
+	 (*datatype toolbar_set =
+	 	 DefaultToolbarSet
+
+	 	 | CustomizeToolbar of stack *)
 
 
 
- (* toolbar definition *)
-
-datatype toolbar =
-	 ToolbarN
-
-	 | Bar of { Buttons: list button}
-
-         | Stack of {MenuName: option string, Title: option string, Buttons: list button}
-
-
-
-datatype toolbar_set =
-	 DefaultToolbarSet
-
-	 | CustomizeToolbar of list toolbar
 
 
 val init : {   Width : size,
                Height : size,
                Selector : id,
-	             Inline: theme,
-               ToolbarSet: toolbar_set,
+	       Inline: theme,
+               ToolbarSet: stack,
                Source : source string}
 	   -> transaction unit
 val setContent : id -> string -> transaction unit
+
+val lets_try : string -> transaction unit

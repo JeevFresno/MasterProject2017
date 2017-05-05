@@ -13,7 +13,7 @@ datatype button =
 	   Separator
 
 	  |UserdefinedFfi of string 
-	  |InlineFn of {FnName: option string, Text: option string} 
+	  |InlineFn of {FnName: option string, Text: option string, Fn: option string} 
 	  |Urfn of string -> string
 
 	  |Menubar of {Menuname: option string, Title: option string, Buttons : list button}
@@ -98,7 +98,8 @@ datatype button =
 
 datatype toolbar = Collection of list button
 
-datatype stack = Verticallist of list toolbar | DefaultToolbarSet 
+datatype stack = Verticallist of list toolbar 
+	       | DefaultToolbarSet 
 
 (*datatype completeToolbar = list stack | DefaultToolbarSet*)
 

@@ -22,3 +22,5 @@ fun content ed = signal ed.Source
 fun setContent ed s =
     set ed.Source s;
     TinymceFfi.setContent ed.Selector s
+
+(*fun lets_try s = TinymceFfi.lets_try "Hello" *)
