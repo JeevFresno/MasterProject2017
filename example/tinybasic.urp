@@ -1,3 +1,8 @@
+allow url https://cdn.rawgit.com/JeevFresno/MasterProject2017/e87cb641/example/style.css
 library ../default
+rewrite style Tinybasic/*
+allow url https://github.com/JeevFresno/MasterProject2017
+allow mime text/plain
+allow mime text/javascript
 
 tinybasic

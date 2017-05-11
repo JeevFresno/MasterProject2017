@@ -9,6 +9,7 @@ fun editor r =
     s <- source r.InitialText;
     return {Selector = id,
             Source = s,
+	    InitialContent = r.InitialText,
             Show = <xml>
               <span id={id}/>
 	      

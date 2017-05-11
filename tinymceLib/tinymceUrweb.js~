@@ -29,7 +29,7 @@ function whichTheme(v){
         var menubarStr = " ";
         var set_menu;
  function customizeToolbar(toolbars){
-
+   
      console.log(toolbars);
      createToolbar(toolbars.v);
 
@@ -48,7 +48,7 @@ var buttonsList ="";
                      for(; buttons != null; buttons = buttons._2 ){
                          var item = buttons._1;
                          if(item instanceof Object){
-
+                            
 			     if(item.n == 'Menubar'){
 				 set_menu = 1;
 				 BuildMenuBar(item);
@@ -69,7 +69,7 @@ var buttonsList ="";
                      tool.push(buttonsList);
                  }
              }       //Nested Toolbar buttons
-
+	     
          }   //End of the of the Customize Toolbar function
 
   function BuildMenuBar(item){
@@ -79,13 +79,13 @@ var buttonsList ="";
       var MenuList = "";
       var r = item.v;
       var buttons =r._Buttons
-
+      
       for(; buttons != null; buttons = buttons._2){
-
+      
 	  var item = buttons._1;
 	  MenuList += item.toLowerCase() + " ";
       }
-
+           
        menubar[menuName] = {items: MenuList, title: titleX};
        menubarStr += menuName +" ";
 }
@@ -96,10 +96,6 @@ function AddCustomButton(item){
     var text = item.v._Text;
     var funBody = item.v._Fn;
     return name;
-}
-
-function lets_try(str){
-  tinymce.activeEditor.setContent(str);
 }
 
 function uw_tinymce_init(r) {
@@ -116,8 +112,7 @@ function uw_tinymce_init(r) {
 
     var editorInstance = '#'+r._Selector;
     var theme = r._Inline;
-    var source = r._Source;
-  //  alert(source.data);
+    alert(r._Source);
     configT.selector=editorInstance;
     // configT.plugins="image,link";
     console.log('Editor Instance = '+editorInstance);
@@ -139,7 +134,7 @@ function uw_tinymce_init(r) {
 	    configT.menubar = menubarStr;
 	}
 	configT.toolbar = tool;
-
+	
     }
 
     configT.setup = function(editor) {
@@ -157,20 +152,20 @@ function uw_tinymce_init(r) {
                     editor.insertContent('&nbsp;User Can define N Custom Buttons!</b>&nbsp;');
                 }
             });
-	/*editor.on('init', function() {
-                //var str = r._InitialText;
-		    tinymce.activeEditor.setContent(source);
+	editor.on('init', function() {
+                var str = r._InitialText;
+		    tinymce.activeEditor.setContent(str);
 
-      });*/
+            });
     }
     //console.log(toolbar.v);
     console.log(configT);
 
     //Initializing the tinymce editor
     tinymce.init(configT);
-
-    //lets_try(source);
-
+    
+    
+    
     //var src = r._Source;
     //ed.setData(sg(src));
     //ed.on('change', function(e) { sv(src, ed.getData()); });
@@ -185,7 +180,11 @@ function uw_tinymce_setContent(str) {
     // $(x).val(s);
 }
 
-
+function lets_try(str){
+    
+    console.log('hi');
+    sayHi();
+}
 
 function sayHi(){
     alert(hi);

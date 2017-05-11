@@ -2,10 +2,6 @@ body {
     padding-top: 60px
 }
 
-.code {
-      background: #d0d0d0;
-}
-
 .MeetingGrid_meeting_default {
     border-style: double;
     cursor: move
@@ -211,4 +207,3 @@ table.MeetingGrid_table_fixedheader>tbody>tr>td {
         width: 20%;
         float: left;
 }
-

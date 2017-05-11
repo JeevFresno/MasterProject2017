@@ -60,7 +60,27 @@ fun customButton() = return <xml><body>
 				return (Tinymce.show ck)}/></div>
 </body></xml>
 
-
+fun reveer() =  return <xml><body>
+<div class = "container_fluid">
+ <h2 style = "text-align: center"> <p class="lead"> Metaprogramming in a Functional based web-framework</p></h2>
+ <hr></hr>
+	<p class="lead" style = "text-align: center">Ur/Web library for TinyMCE Editor.</p><br></br>
+	</div>
+				<div class="container_fluid" style="padding-left:40px; padding-right:40px">
+				<p><a link={withMultipleBar() }>Back</a></p>
+				  <active code = {ck <- Tinymce.editor { Width = Tinymce.Percent 100,
+						 Height = Tinymce.Pixels 150,
+					         Inline = Tinymce.Inline False,
+						 ToolbarSet = let
+						 	val toolbar1 = Tinymce.Collection(Tinymce.Cut :: Tinymce.Copy :: Tinymce.Paste :: Tinymce.Separator  :: Tinymce.Bold :: Tinymce.Italic :: Tinymce.Underline ::[])
+							val toolbar2 = Tinymce.Collection(Tinymce.Alignleft :: Tinymce.Alignright :: Tinymce.Alignjustify :: Tinymce.Aligncenter :: Tinymce.Styleselect :: [])
+							val toolbar3 = Tinymce.Collection(Tinymce.Code :: Tinymce.Codesample :: Tinymce.Bbcode :: Tinymce.Separator :: Tinymce.Image :: Tinymce.Emoticons :: [])
+							in
+						 Tinymce.Verticallist( rev(toolbar1 :: toolbar2 :: toolbar3 :: []))
+						 end,
+					       InitialText = "This is the basic exmaple of TinyMCE"};
+				return (Tinymce.show ck)}/></div>
+</body></xml>
 
 fun withMultipleBar() = return <xml><body>
 <div class = "container_fluid">
@@ -74,11 +94,11 @@ fun withMultipleBar() = return <xml><body>
 						 Height = Tinymce.Pixels 150,
 					         Inline = Tinymce.Inline False,
 						 ToolbarSet = let
-						 	val toolbar1 = Tinymce.Collection(rev(Tinymce.Cut :: Tinymce.Copy :: Tinymce.Paste :: Tinymce.Separator  :: Tinymce.Bold :: Tinymce.Italic :: Tinymce.Underline ::[]))
+						 	val toolbar1 = Tinymce.Collection(Tinymce.Cut :: Tinymce.Copy :: Tinymce.Paste :: Tinymce.Separator  :: Tinymce.Bold :: Tinymce.Italic :: Tinymce.Underline ::[])
 							val toolbar2 = Tinymce.Collection(Tinymce.Alignleft :: Tinymce.Alignright :: Tinymce.Alignjustify :: Tinymce.Aligncenter :: Tinymce.Styleselect :: [])
 							val toolbar3 = Tinymce.Collection(Tinymce.Code :: Tinymce.Codesample :: Tinymce.Bbcode :: Tinymce.Separator :: Tinymce.Image :: Tinymce.Emoticons :: [])
 							in
-						 Tinymce.Verticallist( rev(toolbar1 :: toolbar2 :: toolbar3 :: []))
+						 Tinymce.Verticallist( toolbar1 :: toolbar2 :: toolbar3 :: [])
 						 end,
 					       InitialText = "This is the basic exmaple of TinyMCE"};
 				return (Tinymce.show ck)}/></div>

@@ -1,0 +1,8 @@
+fun rev (ls : 'a list) =                                                                                                                                                           
+    let                                                                                                                                                                              
+        fun rev' (ls : 'a list) (acc : 'a list) =                                                                                                                                    
+            case ls of                                                                                                                                                               
+                Nil => acc                                                                                                                                                           
+              | Cons (x, ls') => rev' ls' (Cons (x, acc))                                                                                                                            
+    in                                                                                                                                                                               
+        rev' ls Nil                                                                                                                                      

@@ -117,8 +117,8 @@ val init : {   Width : size,
                Selector : id,
 	       Inline: theme,
                ToolbarSet: stack,
-               Source : source string
-	       }
+               Source : source string,
+	       InititalContent: string}
 	   -> transaction unit
 val setContent : id -> string -> transaction unit
 
